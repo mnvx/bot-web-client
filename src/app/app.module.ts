@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     MdButtonModule,
     MdCheckboxModule,
+    MdIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

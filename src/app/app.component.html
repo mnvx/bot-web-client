@@ -35,3 +35,22 @@
     <a md-mini-fab routerLink="."><md-icon>check</md-icon></a>
   </div>
 </div>
+
+<md-icon>check</md-icon>
+
+<md-card class="result">
+  <md-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <section class="example-section">
+      <md-checkbox
+              class="example-margin"
+              [checked]="checked"
+              [indeterminate]="indeterminate"
+              [align]="align"
+              [disabled]="disabled">
+        I'm a checkbox
+      </md-checkbox>
+    </section>
+  </md-card-content>
+</md-card>
