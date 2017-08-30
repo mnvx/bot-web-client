@@ -1,18 +1,4 @@
-<md-toolbar>
-  <span><a [routerLink]="['']" class="title">{{title}}</a></span>
-  <span class="fill-remaining-space"></span>
-  <span>
-    <a md-button routerLink=".">
-      Блог
-    </a>
-    <a md-button [routerLink]="['qa']">
-      Вопросы и ответы
-    </a>
-    <a md-button routerLink=".">
-      Цены
-    </a>
-  </span>
-</md-toolbar>
+<app-main-menu></app-main-menu>
 
 <section class="mat-typography app">
   <router-outlet></router-outlet>
