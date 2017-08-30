@@ -1,26 +1,21 @@
-<h1>Добро пожаловать в {{title}}!</h1>
-
-<article>
-    <div class="flex-center">
-
-        <md-grid-list cols="3" rowHeight="800">
-            <md-grid-tile>
-                <p>
-                    <md-icon>check</md-icon>
-                    Начните тестировать вашего бота прямо сейчас.
-                    Для этого просто кликните в поле для печати в мессенджере, где мигает курсор :)
-                </p>
-            </md-grid-tile>
-            <md-grid-tile>
-                <img src="../../assets/img/phone.png" height="800">
-            </md-grid-tile>
-            <md-grid-tile>
-                <p>
-                    <md-icon>check</md-icon>
-                    Оцените, как всё меняется с появлением бота в вашем отеле
-                </p>
-            </md-grid-tile>
-        </md-grid-list>
+<div class="row">
+    <div class="col-md-4 hidden-lg">
+        <h1>Добро пожаловать в {{title}}!</h1>
     </div>
-
-</article>
+    <div class="col-md-4 visible-lg">
+        <h1>Добро пожаловать в {{title}}!</h1>
+        <p>
+            <md-icon>check</md-icon>
+            Начните тестировать вашего бота прямо сейчас.
+            Для этого просто кликните в поле для печати в мессенджере, где мигает курсор :)
+        </p>
+    </div>
+    <div class="col-md-4 phone">
+    </div>
+    <div class="col-md-4 visible-lg">
+        <p>
+            <md-icon>check</md-icon>
+            Оцените, как всё меняется с появлением бота в вашем отеле
+        </p>
+    </div>
+</div>

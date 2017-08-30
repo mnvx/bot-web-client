@@ -1,0 +1,7 @@
+.phone {
+    background: url(../../assets/img/phone.png) no-repeat;
+    background-size: contain;
+
+    height: 500pt;
+    width: 250pt;
+}

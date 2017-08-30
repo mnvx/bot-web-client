@@ -17,13 +17,3 @@ a {
 .fill-remaining-space {
     flex: 1 1 auto;
 }
-
-.right {
-    float: right;
-}
-
-.app {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
