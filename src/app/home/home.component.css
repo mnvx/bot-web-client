@@ -5,3 +5,39 @@
     height: 500pt;
     width: 250pt;
 }
+
+.visible-lg .hello {
+    font-size: 2em;
+    margin-top: 100pt;
+    margin-bottom: 2em;
+}
+.hidden-lg .hello {
+    font-size: 2em;
+    margin-top: 20pt;
+    margin-bottom: 1em;
+}
+
+.large-name {
+    color: #5cc7ff;
+}
+.visible-lg .large-name {
+    font-size: 7em;
+    margin-bottom: 0.8em;
+}
+.hidden-lg .large-name {
+    font-size: 3.5em;
+    margin-bottom: 0.8em;
+}
+.visible-lg .mat-title {
+    margin-left: 30pt;
+    margin-right: 30pt;
+}
+.blue {
+    color: #5cc7ff;
+}
+.green {
+    color: #4bd865;
+}
+p>md-icon {
+    vertical-align: text-bottom;
+}
