@@ -1,9 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {CommunicationService} from "./communication.service";
 
 @Component({
   selector: 'smartbot-messenger',
   templateUrl: './messenger.component.html',
-  styleUrls: ['./messenger.component.css']
+  styleUrls: ['./messenger.component.css'],
+  providers: [
+    CommunicationService
+  ]
 })
 export class MessengerComponent implements OnInit, AfterViewInit {
 
@@ -11,12 +15,12 @@ export class MessengerComponent implements OnInit, AfterViewInit {
    * Is message control activated by user?
    * @type {boolean}
    */
-  public messageActivated = false;
+  public messageActivated: boolean = false;
 
   /**
    * Current message
    */
-  public message = '';
+  public message: string = '';
 
   /**
    * Message history for displaying on screen
@@ -33,7 +37,7 @@ export class MessengerComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  constructor() { }
+  constructor(protected service: CommunicationService) { }
 
   ngOnInit() { }
 
@@ -74,15 +78,33 @@ export class MessengerComponent implements OnInit, AfterViewInit {
    */
   onKeyPress(e) {
     if (e.keyCode === 13 && !e.shiftKey) {
-      this.messages.push({
+      this.addMessage({
         author: 'user',
         text: this.message,
       });
-      this.message = '';
+
+      // Display bot's reply after several time
       setTimeout(() => {
-        this.scrollDown();
-      }, 100);
+        this.addMessage({
+          author: 'smartbot',
+          text: this.service.sendMessage(this.message),
+        });
+      }, 500 + 2000*Math.random());
+
+      this.message = '';
     }
+  }
+
+  /**
+   * Add message on screen and update scroll
+   * @param messageItem
+   */
+  protected addMessage(messageItem)
+  {
+    this.messages.push(messageItem);
+    setTimeout(() => {
+      this.scrollDown();
+    }, 100);
   }
 
 }
