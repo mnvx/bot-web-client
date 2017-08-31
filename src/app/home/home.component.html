@@ -21,13 +21,8 @@
             Для этого просто кликните в&nbsp;поле для&nbsp;печати в&nbsp;мессенджере, где&nbsp;мигает курсор <md-icon>mood</md-icon>
         </p>
     </div>
-    <div class="col-md-4 phone">
-        <div class="type-message">
-            <textarea mdInput placeholder="Напишите сообщение" (focus)="onFocusMessage()"></textarea>
-            <button md-raised-button *ngIf="!messageActivated" color="primary" class="reply-to-bot hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
-            <button md-raised-button class="hotelier-room hidden-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>
-        </div>
-        <button md-raised-button class="hotelier-room visible-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>
+    <div class="col-md-4">
+        <smartbot-messenger></smartbot-messenger>
     </div>
     <div class="col-md-4 visible-lg text-left">
         <div class="hello">&nbsp;</div>

@@ -15,6 +15,7 @@ import { QaComponent } from './qa/qa.component';
 import { HomeComponent } from './home/home.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { PriceComponent } from './price/price.component';
+import { MessengerComponent } from './messenger/messenger.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PriceComponent } from './price/price.component';
     HomeComponent,
     MainMenuComponent,
     PriceComponent,
+    MessengerComponent,
   ],
   imports: [
     BrowserAnimationsModule,

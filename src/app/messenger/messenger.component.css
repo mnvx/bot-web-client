@@ -1,0 +1,38 @@
+.phone {
+    background: url(../../assets/img/phone.png) no-repeat;
+    background-size: contain;
+
+    height: 500pt;
+    width: 250pt;
+}
+
+.type-message {
+    position: relative;
+    top: 390pt;
+    left: 25pt;
+    width: 190pt;
+}
+.type-message textarea {
+    width: 100%;
+}
+.reply-to-bot {
+    position: absolute;
+    left: -152pt;
+    top: 0;
+    height: 35pt;
+    font-size: 1.5em;
+}
+.hotelier-room.hidden-xs {
+    position: absolute;
+    left: 190pt;
+    top: 0;
+    height: 35pt;
+    font-size: 1.5em;
+    background-color: #4bd865;
+    color: white;
+}
+.hotelier-room.visible-xs {
+    margin-bottom: 30pt;
+    background-color: #4bd865;
+    color: white;
+}

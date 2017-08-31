@@ -1,0 +1,8 @@
+<div class="phone">
+  <div class="type-message">
+    <textarea mdInput placeholder="Напишите сообщение" (input)="onFoundMessageControl()" #focusable autofocus></textarea>
+    <button md-raised-button *ngIf="!messageActivated" (click)="activateMessageControl(focusable)" color="primary" class="reply-to-bot hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
+    <button md-raised-button class="hotelier-room hidden-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>
+  </div>
+</div>
+<button md-raised-button class="hotelier-room visible-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>

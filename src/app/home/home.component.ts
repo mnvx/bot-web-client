@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'Смарт отель';
-
-  public messageActivated = false;
-
-  onFocusMessage() {
-    this.messageActivated = true;
-  }
 }
