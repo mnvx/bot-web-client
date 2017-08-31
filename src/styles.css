@@ -17,3 +17,10 @@ a {
 .fill-remaining-space {
     flex: 1 1 auto;
 }
+
+.blue {
+    color: #5cc7ff;
+}
+.green {
+    color: #4bd865;
+}

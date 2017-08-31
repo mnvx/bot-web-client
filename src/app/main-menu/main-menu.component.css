@@ -1,4 +1,20 @@
-.logo {
-    height: 30px;
-    margin-top: 8px;
+.logo a {
+    text-decoration: none;
+    color: black;
+}
+.logo md-icon {
+    vertical-align: text-bottom;
+}
+md-list-item a {
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+md-toolbar-row a {
+    cursor: pointer;
+}
+
+.close {
+    display: none!important;
 }

@@ -1,19 +1,16 @@
 <md-toolbar>
-    <span>
-        <a [routerLink]="['.']"><img src="../../assets/img/logo.png" class="logo"></a>
-    </span>
+    <span class="visible-xs visible-xm"><button md-icon-button class="menu-button" (click)="onMenu()"><md-icon>menu</md-icon></button>&nbsp;</span>
+    <span class="logo"><a [routerLink]="['.']">смартбот<span class="green"><md-icon class="green">alarm_on</md-icon>нлайн</span></a></span>
 
-    <span class="fill-remaining-space"></span>
+    <md-toolbar-row *ngFor="let link of links" class="visible-xs visible-xm main-sub-menu close">
+        <a (click)="onSelectMenuItem(link)">{{ link.title }}</a>
+    </md-toolbar-row>
 
-    <span>
-    <a md-button [routerLink]="['.']">
-      Блог
-    </a>
-    <a md-button [routerLink]="['qa']">
-      Вопросы и ответы
-    </a>
-    <a md-button [routerLink]="['price']">
-      Цены
-    </a>
-  </span>
+    <span class="fill-remaining-space hidden-xs hidden-xm"></span>
+
+    <md-nav-list class="hidden-xs hidden-xm">
+        <md-list-item *ngFor="let link of links">
+            <a mdLine (click)="onSelectMenuItem(link)">{{ link.title }}</a>
+        </md-list-item>
+    </md-nav-list>
 </md-toolbar>
