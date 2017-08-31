@@ -36,3 +36,20 @@
     background-color: #4bd865;
     color: white;
 }
+
+.messages {
+    position: absolute;
+    top: 110pt;
+    left: 30pt;
+    height: 270pt;
+    width: 205pt;
+    overflow-y: scroll;
+    border: none;
+}
+
+.message {
+    border-radius: 10pt;
+    background-color: #eeeeee;
+    padding: 10pt;
+    margin: 5pt;
+}
