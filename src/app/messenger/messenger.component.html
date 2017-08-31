@@ -1,14 +1,26 @@
 <div class="phone">
   <div class="messages">
     <div *ngFor="let message of messages">
-      <div class="message">
-        {{ message.text }}
+
+      <div class="message {{ message.author }}" *ngIf="message.author === 'smartbot'">
+        <div class="message-text" [innerHTML]="message.text | br"></div>
+        <div class="avatar">
+          <md-icon>alarm_on</md-icon>
+        </div>
       </div>
+
+      <div class="message {{ message.author }}" *ngIf="message.author === 'user'">
+        <div class="avatar">
+          <md-icon>face</md-icon>
+        </div>
+        <div class="message-text" [innerHTML]="message.text | br"></div>
+      </div>
+
     </div>
   </div>
   <div class="type-message">
-    <textarea mdInput placeholder="Напишите сообщение" (input)="onFoundMessageControl()" #focusable autofocus></textarea>
-    <button md-raised-button *ngIf="!messageActivated" (click)="activateMessageControl(focusable)" color="primary" class="reply-to-bot hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
+    <textarea mdInput placeholder="Напишите сообщение" (input)="onFoundMessageControl()" (keyup)="onKeyPress($event)" [(ngModel)]="message" #focusable autofocus>{{ message }}</textarea>
+    <button md-raised-button *ngIf="!messageActivated" (click)="activateMessageControl(focusable)" class="reply-to-bot hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
     <button md-raised-button class="hotelier-room hidden-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>
   </div>
 </div>

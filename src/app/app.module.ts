@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import {
   MdButtonModule,
   MdCheckboxModule,
@@ -16,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { PriceComponent } from './price/price.component';
 import { MessengerComponent } from './messenger/messenger.component';
+import { BreakLine } from './pipes/break-line.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MessengerComponent } from './messenger/messenger.component';
     MainMenuComponent,
     PriceComponent,
     MessengerComponent,
+    BreakLine,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -33,6 +36,7 @@ import { MessengerComponent } from './messenger/messenger.component';
     MdIconModule,
     MdToolbarModule,
     MdInputModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES),
   ],
   providers: [],

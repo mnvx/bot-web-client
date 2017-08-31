@@ -21,6 +21,8 @@
     top: 0;
     height: 35pt;
     font-size: 1.5em;
+    background-color: #0082e2;
+    color: white;
 }
 .hotelier-room.hidden-xs {
     position: absolute;
@@ -47,9 +49,28 @@
     border: none;
 }
 
-.message {
+.message div {
+    display: inline-block;
+}
+.message.user .avatar {
+    padding-left: 5pt;
+}
+.message div md-icon {
+    vertical-align: -40%;
+}
+.message.smartbot div md-icon {
+    color: #4bd865;
+}
+.message.user div md-icon {
+    color: #5cc7ff;
+}
+.message .message-text {
     border-radius: 10pt;
     background-color: #eeeeee;
-    padding: 10pt;
+    padding: 8pt;
     margin: 5pt;
+    width: 155pt
+}
+.message.user .message-text {
+    background-color: lightskyblue;
 }
