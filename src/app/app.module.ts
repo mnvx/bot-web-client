@@ -7,7 +7,7 @@ import {
   MdCheckboxModule,
   MdIconModule,
   MdToolbarModule,
-  MdGridListModule,
+  MdInputModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import { PriceComponent } from './price/price.component';
     MdCheckboxModule,
     MdIconModule,
     MdToolbarModule,
-    MdGridListModule,
+    MdInputModule,
     RouterModule.forRoot(ROUTES),
   ],
   providers: [],
