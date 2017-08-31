@@ -23,8 +23,8 @@
     </div>
     <div class="col-md-4 phone">
         <div class="type-message">
-            <textarea mdInput placeholder="Напишите сообщение"></textarea>
-            <button md-raised-button color="primary" class="reply-to-bot hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
+            <textarea mdInput placeholder="Напишите сообщение" (focus)="onFocusMessage()"></textarea>
+            <button md-raised-button *ngIf="!messageActivated" color="primary" class="reply-to-bot hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
             <button md-raised-button class="hotelier-room hidden-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>
         </div>
         <button md-raised-button class="hotelier-room visible-xs">Рабочий кабинет отельера <md-icon>arrow_forward</md-icon></button>
