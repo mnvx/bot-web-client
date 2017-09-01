@@ -41,3 +41,10 @@ yarn-error.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Python
+/venv
+pip3
+python3
+*.pyc
+__pycache__
