@@ -82,14 +82,14 @@ export class MessengerComponent implements OnInit, AfterViewInit {
         author: 'user',
         text: this.message,
       });
-
-      // Display bot's reply after several time
-      setTimeout(() => {
-        this.addMessage({
-          author: 'smartbot',
-          text: this.service.sendMessage(this.message),
-        });
-      }, 500 + 2000*Math.random());
+      this.service.sendMessage(this.message).then((response) => {
+        setTimeout(() => {
+          this.addMessage({
+            author: 'smartbot',
+            text: response['speech'],
+          });
+        }, 500 + 2000*Math.random());
+      });
 
       this.message = '';
     }

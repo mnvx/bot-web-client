@@ -1,15 +1,22 @@
 from flask import Flask, jsonify
+from flask.ext.cors import CORS, cross_origin
+
 import random
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
 
 @app.route('/')
 def index():
     return 'Smartbot Onepage backend started';
 
 
-@app.route('/send-message', methods=['POST'])
+@app.route('/send-message', methods=['POST', 'OPTIONS'])
+@cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
 def send_message():
     messages = [
         'Привет!',
