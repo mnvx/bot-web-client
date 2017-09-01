@@ -1,6 +1,52 @@
-from flask import Flask
+from flask import Flask, jsonify
+import random
+
 app = Flask(__name__)
 
+
 @app.route('/')
-def hello_world():
-    return 'Hello, World!!!'
+def index():
+    return 'Smartbot Onepage backend started';
+
+
+@app.route('/send-message', methods=['POST'])
+def send_message():
+    messages = [
+        'Привет!',
+        'Я всего лишь бот',
+        'А как вы думаете?',
+        'Это только политики бесконечно могут разговаривать.',
+        'Я и не знаю что вам ответить.',
+        'Минутку...',
+    ]
+    return jsonify(
+        actionIncomplete=False,
+        contexts=[],
+        intent="Default Welcome Intent",
+        parameters={},
+        speech=random.choice(messages),
+        status="success",
+        status_message="",
+    )
+
+
+@app.route('/demo-message/<message_id>', methods=['GET'])
+def demo_message(message_id):
+    messages = [
+        'Привет!',
+        'Я всего лишь бот',
+        'А как вы думаете?',
+        'Это только политики бесконечно могут разговаривать.',
+        'Я и не знаю что вам ответить.',
+        'Минутку...',
+    ]
+    return jsonify(
+        action="",
+        delay_to_show=2,
+        message=random.choice(messages),
+        message_content_type="text",
+        message_direction="to",
+        next_message_id=4,
+        show_typing=True,
+        message_id=int(message_id),
+    )
