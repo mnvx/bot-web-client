@@ -10,12 +10,13 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
 
+
 @app.route('/')
 def index():
     return 'Smartbot Onepage backend started';
 
 
-@app.route('/send-message', methods=['POST', 'OPTIONS'])
+@app.route('/api/send-message', methods=['POST', 'OPTIONS'])
 @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
 def send_message():
     messages = [
@@ -37,7 +38,7 @@ def send_message():
     )
 
 
-@app.route('/demo-message/<message_id>', methods=['GET'])
+@app.route('/api/demo-message/<message_id>', methods=['GET'])
 def demo_message(message_id):
     messages = [
         'Привет!',

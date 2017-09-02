@@ -3,8 +3,10 @@ SHELL = /bin/bash
 help:
 	@echo "    dev"
 	@echo "        Initialise virtualenv and dev requirements"
-	@echo "    install"
-	@echo "        Install requirements"
+	@echo "    staging"
+	@echo "        Install requirements and build for staging"
+	@echo "    production"
+	@echo "        Install requirements and build for production"
 	@echo "    test"
 	@echo "        Run tests"
 
@@ -25,13 +27,22 @@ dev:
 	ng build && \
 	popd
 
-install:
+staging:
 	pushd backend
 	pip3 install -r requirements.txt
 	popd
 	pushd frontend
 	npm install
-	ng build
+	ng build --prod --env=staging
+	popd
+
+production:
+	pushd backend
+	pip3 install -r requirements.txt
+	popd
+	pushd frontend
+	npm install
+	ng build --prod --env=prod
 	popd
 
 test:

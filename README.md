@@ -5,6 +5,8 @@ This project is part of smartbot.online project.
 ## Requirements
 
 - Python 3
+- npm
+- ng
 
 ## Installation
 
@@ -14,10 +16,16 @@ For development:
 make dev
 ```
 
+For staging:
+
+```bash
+make staging
+```
+
 For production:
 
 ```bash
-make install
+make production
 ```
 
 # About frontend
