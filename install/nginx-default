@@ -1,0 +1,39 @@
+# контекст, в котором указываются директивы виртуального сервера
+server {
+
+    # порт на который сервер будет принимать запросы
+    listen 80;
+
+    # имена виртуального сервера
+    server_name dev.smartbot.online onepage.smartbot.local;
+
+    charset utf-8;
+
+    # определяет файлы, которые будут использоваться в качестве индекса
+    index index.php index.html;
+
+    location /static {
+        alias /work/www/onepage/frontend/dist; # путь к статическим файлам вашего сайта
+    }
+
+
+
+
+    # контекст для запросов в директории /css/font/
+#    location /css/font/ {
+        # конфигурирует CORS так, чтобы было возможно получать файлы шрифтов с любого домена
+#        add_header Access-Control-Allow-Origin *;
+#    }
+
+
+
+    # контекст для запросов в директории /
+    location / {
+        try_files $uri @yourapplication;
+    }
+    location @yourapplication {
+        include uwsgi_params;
+        uwsgi_pass unix:/work/www/onepage/backend/uwsgi.sock;
+    }
+
+}

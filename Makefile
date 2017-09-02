@@ -28,21 +28,23 @@ dev:
 	popd
 
 staging:
-	pushd backend
-	pip3 install -r requirements.txt
+	pushd backend && \
+	pip3 install --upgrade pip && \
+	pip3 install -r requirements.txt && \
 	popd
-	pushd frontend
-	npm install
-	ng build --prod --env=staging
+	pushd frontend  && \
+	npm install && \
+	ng build --prod --env=staging && \
 	popd
 
 production:
-	pushd backend
-	pip3 install -r requirements.txt
+	pushd backend && \
+	pip3 install --upgrade pip && \
+	pip3 install -r requirements.txt && \
 	popd
-	pushd frontend
-	npm install
-	ng build --prod --env=prod
+	pushd frontend && \
+	npm install && \
+	ng build --prod --env=prod && \
 	popd
 
 test:
