@@ -2,13 +2,29 @@
 
 This project is part of smartbot.online project. 
 
-## Requirements
+## Installation using Docker
+
+```bash
+git pull git@gitlab.com:smartbot.online/onepage.git
+cd onepage
+pushd frontend
+ng build --env=staging --prod
+popd
+docker build -t onepage .
+docker run --rm -p 88:80 -t onepage
+```
+
+Then open [http://localhost:88/](http://localhost:88/)
+
+## Installation using console
+
+### Requirements
 
 - Python 3
 - npm
 - ng
 
-## Installation
+### Installation
 
 For development:
 
