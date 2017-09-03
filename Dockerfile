@@ -35,7 +35,8 @@ RUN mkdir /var/log/uwsgi
 RUN npm install -g @angular/cli
 
 ADD ./ /work/www/onepage
-RUN cd /work/www/onepage && make staging && cd /work
+#RUN cd /work/www/onepage && make staging && cd /work
+RUN chown -R www-data:www-data /work/www
 
 RUN apt-get -yq autoremove --purge && \
 	apt-get clean && \

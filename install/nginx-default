@@ -29,11 +29,11 @@ server {
 
     # контекст для запросов в директории /
     location / {
-        try_files $uri @yourapplication;
+        try_files $uri server.py;
     }
     location @yourapplication {
         include uwsgi_params;
-        uwsgi_pass unix:/work/www/onepage/backend/uwsgi.sock;
+#        uwsgi_pass unix:/work/www/onepage/backend/uwsgi.sock;
     }
 
 }
