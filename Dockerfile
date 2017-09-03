@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Nikolay Matiushenkov <mnvx@yandex.ru>
 
-RUN mkdir /work && mkdir /work/www
+RUN mkdir /work && mkdir /work/www && mkdir /work/www/smartbot
 # && chmod uao+rwx /work
 
 # Set correct environment variables
@@ -9,9 +9,7 @@ ENV HOME /work
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install required packages
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C C300EE8C && \
-	echo 'deb http://ppa.launchpad.net/nginx/development/ubuntu xenial main' > /etc/apt/sources.list.d/nginx.list && \
-	apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
         python3 \
         python3-pip \
 	    nginx \
@@ -32,9 +30,10 @@ COPY install/nginx-default /etc/nginx/sites-available/default
 RUN	echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir /var/log/uwsgi
 
-RUN npm install -g @angular/cli
+#RUN npm install -g @angular/cli
+RUN pip3 install uwsgi
 
-ADD ./ /work/www/onepage
+ADD ./ /work/www/smartbot/onepage
 #RUN cd /work/www/onepage && make staging && cd /work
 RUN chown -R www-data:www-data /work/www
 
@@ -47,5 +46,7 @@ RUN apt-get -yq autoremove --purge && \
 
 # Expose volumes and ports
 EXPOSE 80
+#EXPOSE 443
 
-CMD service nginx start
+CMD service nginx start ; \
+    uwsgi --socket /work/www/smartbot/onepage/backend/uwsgi.sock --wsgi-file /work/www/smartbot/onepage/backend/wsgi.py --chmod-socket=666

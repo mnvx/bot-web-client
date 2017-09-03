@@ -1,39 +1,21 @@
-# контекст, в котором указываются директивы виртуального сервера
-server {
+upstream flask {
+    server unix:///work/www/smartbot/onepage/backend/uwsgi.sock;
+    # ./venv/bin/uwsgi --socket uwsgi.sock --wsgi-file wsgi.py --chmod-socket=664
+    # /work/www/smartbot/onepage/backend/venv/bin/uwsgi --socket /work/www/smartbot/onepage/backend/uwsgi.sock --wsgi-file /work/www/smartbot/onepage/backend/wsgi.py --chmod-socket=664
 
-    # порт на который сервер будет принимать запросы
+    #server 127.0.0.1:8001; # взаимодействие с uwsgi через веб-порт.
+    # ./venv/bin/uwsgi --socket :8001 --wsgi-file wsgi.py
+}
+
+server {
     listen 80;
 
-    # имена виртуального сервера
     server_name dev.smartbot.online onepage.smartbot.local;
 
     charset utf-8;
 
-    # определяет файлы, которые будут использоваться в качестве индекса
-    index index.php index.html;
-
-    location /static {
-        alias /work/www/onepage/frontend/dist; # путь к статическим файлам вашего сайта
-    }
-
-
-
-
-    # контекст для запросов в директории /css/font/
-#    location /css/font/ {
-        # конфигурирует CORS так, чтобы было возможно получать файлы шрифтов с любого домена
-#        add_header Access-Control-Allow-Origin *;
-#    }
-
-
-
-    # контекст для запросов в директории /
     location / {
-        try_files $uri server.py;
+        include /work/www/smartbot/onepage/backend/uwsgi_params;
+        uwsgi_pass flask;
     }
-    location @yourapplication {
-        include uwsgi_params;
-#        uwsgi_pass unix:/work/www/onepage/backend/uwsgi.sock;
-    }
-
 }
