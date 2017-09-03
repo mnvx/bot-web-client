@@ -3,7 +3,7 @@ upstream flask {
     # ./venv/bin/uwsgi --socket uwsgi.sock --wsgi-file wsgi.py --chmod-socket=664
     # /work/www/smartbot/onepage/backend/venv/bin/uwsgi --socket /work/www/smartbot/onepage/backend/uwsgi.sock --wsgi-file /work/www/smartbot/onepage/backend/wsgi.py --chmod-socket=664
 
-    #server 127.0.0.1:8001; # взаимодействие с uwsgi через веб-порт.
+    #server 127.0.0.1:8001;
     # ./venv/bin/uwsgi --socket :8001 --wsgi-file wsgi.py
 }
 
@@ -15,6 +15,11 @@ server {
     charset utf-8;
 
     location / {
+        root /work/www/smartbot/onepage/frontend/dist;
+        autoindex off;
+    }
+
+    location /api {
         include /work/www/smartbot/onepage/backend/uwsgi_params;
         uwsgi_pass flask;
     }

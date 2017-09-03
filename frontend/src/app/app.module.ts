@@ -3,7 +3,7 @@ import { RouterModule } from "@angular/router";
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MdButtonModule,
   MdCheckboxModule,

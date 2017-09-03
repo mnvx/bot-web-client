@@ -69,7 +69,6 @@ export class MainMenuComponent implements OnInit {
 
   onSelectMenuItem(item) {
     this.router.navigate([item.route]);
-    console.log(item);
   }
 
 }

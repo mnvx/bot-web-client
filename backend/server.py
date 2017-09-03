@@ -58,3 +58,7 @@ def demo_message(message_id):
         show_typing=True,
         message_id=int(message_id),
     )
+
+
+if __name__ == "__main__":
+    app.run()
