@@ -11,7 +11,7 @@ help:
 	@echo "        Run tests"
 
 dev:
-	npm install -g @angular/cli
+	sudo npm install -g @angular/cli
 	pushd backend && \
 	sudo apt-get install python3-venv && \
 	python3 -m venv venv && \
@@ -29,7 +29,7 @@ dev:
 	popd
 
 staging:
-	npm install -g @angular/cli
+	sudo npm install -g @angular/cli
 	pushd backend && \
 	pip3 install --upgrade pip && \
 	pip3 install -r requirements.txt && \
@@ -40,7 +40,7 @@ staging:
 	popd
 
 production:
-	npm install -g @angular/cli
+	sudo npm install -g @angular/cli
 	pushd backend && \
 	pip3 install --upgrade pip && \
 	pip3 install -r requirements.txt && \
