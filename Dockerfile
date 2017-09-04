@@ -40,9 +40,9 @@ RUN mkdir /work/www/smartbot
 #https://github.com/moby/moby/issues/6396#issuecomment-270550056
 #RUN git clone git@gitlab.com:smartbot.online/onepage.git /work/www/smartbot/onepage
 #RUN npm install -g @angular/cli
-#RUN cd /work/www/onepage && make staging && cd /work
 ADD ./ /work/www/smartbot/onepage
-RUN pip3 install -r /work/www/smartbot/onepage/backend/requirements.txt
+RUN cd /work/www/smartbot/onepage && make staging && cd /work
+#RUN pip3 install -r /work/www/smartbot/onepage/backend/requirements.txt
 RUN chown -R www-data:www-data /work/www
 
 COPY install/supervisor/onepage-server.conf /etc/supervisor/conf.d/

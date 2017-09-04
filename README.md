@@ -7,11 +7,6 @@ This project is part of smartbot.online project.
 ```bash
 git clone git@gitlab.com:smartbot.online/onepage.git
 cd onepage
-pushd frontend
-sudo npm install -g @angular/cli
-npm install --production
-ng build --env=staging --prod
-popd
 docker build -t onepage .
 docker run --rm -p 88:80 -t onepage
 ```
