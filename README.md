@@ -8,6 +8,11 @@ This project is part of smartbot.online project.
 git clone git@gitlab.com:smartbot.online/onepage.git
 cd onepage
 docker build -t onepage .
+```
+
+Run docker container
+
+```bash
 docker run --rm -p 88:80 -t onepage
 ```
 
