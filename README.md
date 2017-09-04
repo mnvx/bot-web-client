@@ -5,9 +5,11 @@ This project is part of smartbot.online project.
 ## Installation using Docker
 
 ```bash
-git pull git@gitlab.com:smartbot.online/onepage.git
+git clone git@gitlab.com:smartbot.online/onepage.git
 cd onepage
 pushd frontend
+sudo npm install -g @angular/cli
+npm install
 ng build --env=staging --prod
 popd
 docker build -t onepage .

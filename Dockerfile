@@ -37,6 +37,7 @@ RUN pip3 install --upgrade pip
 RUN pip3 install uwsgi
 
 RUN mkdir /work/www/smartbot
+#https://github.com/moby/moby/issues/6396#issuecomment-270550056
 ADD ./ /work/www/smartbot/onepage
 RUN pip3 install -r /work/www/smartbot/onepage/backend/requirements.txt
 #RUN cd /work/www/onepage && make staging && cd /work
