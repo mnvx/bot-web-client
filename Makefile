@@ -33,7 +33,7 @@ staging:
 	pip3 install -r requirements.txt && \
 	popd
 	pushd frontend  && \
-	npm install && \
+	npm install --production && \
 	ng build --prod --env=staging && \
 	popd
 
@@ -43,7 +43,7 @@ production:
 	pip3 install -r requirements.txt && \
 	popd
 	pushd frontend && \
-	npm install && \
+	npm install --production && \
 	ng build --prod --env=prod && \
 	popd
 

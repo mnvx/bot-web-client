@@ -1,10 +1,9 @@
 upstream flask {
     server unix:///work/www/smartbot/onepage/backend/uwsgi.sock;
-    # ./venv/bin/uwsgi --socket uwsgi.sock --wsgi-file wsgi.py --chmod-socket=664
-    # /work/www/smartbot/onepage/backend/venv/bin/uwsgi --socket /work/www/smartbot/onepage/backend/uwsgi.sock --wsgi-file /work/www/smartbot/onepage/backend/wsgi.py --chmod-socket=664
+    # ./venv/bin/uwsgi --socket uwsgi.sock
 
     #server 127.0.0.1:8001;
-    # ./venv/bin/uwsgi --socket :8001 --wsgi-file wsgi.py
+    # ./venv/bin/uwsgi --socket :8001
 }
 
 server {

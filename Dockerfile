@@ -2,7 +2,6 @@ FROM ubuntu:16.04
 MAINTAINER Nikolay Matiushenkov <mnvx@yandex.ru>
 
 RUN mkdir /work && mkdir /work/www
-# && chmod uao+rwx /work
 
 # Set correct environment variables
 ENV HOME /work
@@ -33,14 +32,17 @@ RUN mkdir /var/log/uwsgi
 
 RUN pip3 install --upgrade pip
 
-#RUN npm install -g @angular/cli
 RUN pip3 install uwsgi
 
+# Deploy Onepage
 RUN mkdir /work/www/smartbot
+# Instead of ADD:
 #https://github.com/moby/moby/issues/6396#issuecomment-270550056
+#RUN git clone git@gitlab.com:smartbot.online/onepage.git /work/www/smartbot/onepage
+#RUN npm install -g @angular/cli
+#RUN cd /work/www/onepage && make staging && cd /work
 ADD ./ /work/www/smartbot/onepage
 RUN pip3 install -r /work/www/smartbot/onepage/backend/requirements.txt
-#RUN cd /work/www/onepage && make staging && cd /work
 RUN chown -R www-data:www-data /work/www
 
 COPY install/supervisor/onepage-server.conf /etc/supervisor/conf.d/
@@ -48,9 +50,6 @@ COPY install/supervisor/onepage-server.conf /etc/supervisor/conf.d/
 RUN apt-get -yq autoremove --purge && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-#RUN git clone git@gitlab.com:smartbot.online/onepage.git /work/www/onepage
-#RUN sudo -u www-data git clone https://github.com/mnvx/backend-cup-laravel /var/www/cup-backend
 
 # Expose volumes and ports
 EXPOSE 80

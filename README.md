@@ -9,7 +9,7 @@ git clone git@gitlab.com:smartbot.online/onepage.git
 cd onepage
 pushd frontend
 sudo npm install -g @angular/cli
-npm install
+npm install --production
 ng build --env=staging --prod
 popd
 docker build -t onepage .
