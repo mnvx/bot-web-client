@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
   MdButtonModule,
@@ -10,6 +10,7 @@ import {
   MdIconModule,
   MdToolbarModule,
   MdInputModule,
+  MdFormFieldModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -38,6 +39,8 @@ import { BreakLine } from './pipes/break-line.pipe';
     MdToolbarModule,
     MdInputModule,
     FormsModule,
+    MdFormFieldModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
     HttpClientModule,
   ],

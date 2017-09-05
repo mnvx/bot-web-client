@@ -8,45 +8,43 @@
 
 .type-message {
     position: relative;
-    top: 390pt;
-    left: 25pt;
-    width: 190pt;
+    top: 372pt;
+    left: 20pt;
+    width: 204pt;
+}
+.type-message md-form-field {
+    width: 100%;
+    color: black;
 }
 .type-message textarea {
-    width: 100%;
+    resize: none;
+    overflow: hidden;
+    color: black;
 }
+
 .reply-to-bot {
     position: absolute;
-    left: -152pt;
-    top: 0;
+    left: -162pt;
+    top: 5pt;
     height: 35pt;
     font-size: 1.5em;
     background-color: #0082e2;
     color: white;
 }
-.hotelier-room.hidden-xs {
-    position: absolute;
-    left: 190pt;
-    top: 0;
-    height: 35pt;
-    font-size: 1.5em;
-    background-color: #4bd865;
-    color: white;
-}
-.hotelier-room.visible-xs {
-    margin-bottom: 30pt;
-    background-color: #4bd865;
-    color: white;
-}
 
 .messages {
     position: absolute;
-    top: 110pt;
+    top: 93pt;
     left: 30pt;
-    height: 270pt;
+    height: 277pt;
     width: 205pt;
+    overflow: hidden;
     overflow-y: scroll;
-    border: none;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+.messages::-webkit-scrollbar {
+    width: 0;
 }
 
 .message div {
@@ -62,15 +60,17 @@
     color: #4bd865;
 }
 .message.user div md-icon {
-    color: #5cc7ff;
+    color: #0084ff;
 }
 .message .message-text {
     border-radius: 10pt;
     background-color: #eeeeee;
     padding: 8pt;
     margin: 5pt;
-    width: 155pt
+    width: 165pt;
+    word-wrap: break-word;
 }
 .message.user .message-text {
-    background-color: lightskyblue;
+    background-color: #0084ff;
+    color: white;
 }
