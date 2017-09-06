@@ -5,3 +5,4 @@ python3
 *.pyc
 __pycache__
 uwsgi.sock
+app_config.py

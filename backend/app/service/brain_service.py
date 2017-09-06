@@ -1,16 +1,19 @@
-import random
+import requests
 from app.service.brain_service_interface import BrainServiceInterface
 
 
 class BrainService(BrainServiceInterface):
 
+    CHATBOT_QUERY_PATH = 'chatbot/query'
+
+    def __init__(self, api_url: str):
+        self.api_url = api_url
+
     def query(self, query: str):
-        messages = [
-            'Привет!',
-            'Я всего лишь бот',
-            'А как вы думаете?',
-            'Это только политики бесконечно могут разговаривать.',
-            'Я и не знаю что вам ответить.',
-            'Минутку...',
-        ]
-        return random.choice(messages)
+        response = requests.post(self.api_url + self.CHATBOT_QUERY_PATH, json={
+            "session_id": "fb_12345",
+            "lang": "ru",
+            "query": query
+         })
+
+        return response.json()['data']['parameters']['messages'][0]['speech']

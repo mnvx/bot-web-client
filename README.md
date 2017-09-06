@@ -28,6 +28,13 @@ Then open [http://localhost:88/](http://localhost:88/)
 
 ### Installation
 
+Create configuration file and edit configuration:
+
+```bash
+cp backend/app_config.py.example backend/app_config.py
+mcedit backend/app_config.py
+```
+
 For development:
 
 ```bash

@@ -4,9 +4,10 @@ from app.controller.demo_mode import DemoMode
 from app.controller.brain import Brain
 from app.service.brain_service import BrainService
 from app.service.brain_service_interface import BrainServiceInterface
+from app_config import BRAIN_API_URL
+
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -14,7 +15,7 @@ def index():
 
 
 def my_config(binder):
-    binder.bind(BrainServiceInterface, BrainService())
+    binder.bind(BrainServiceInterface, BrainService(BRAIN_API_URL))
 
 inject.configure(my_config)
 
