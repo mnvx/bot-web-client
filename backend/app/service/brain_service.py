@@ -1,9 +1,10 @@
 import random
+from app.service.brain_service_interface import BrainServiceInterface
 
 
-class BrainService:
+class BrainService(BrainServiceInterface):
 
-    def query(self, query):
+    def query(self, query: str):
         messages = [
             'Привет!',
             'Я всего лишь бот',

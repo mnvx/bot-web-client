@@ -1,13 +1,13 @@
 from flask import jsonify
 from flask.ext.classy import FlaskView, route
 from flask.ext.cors import cross_origin
-from app.service.brain_service import BrainService
+import inject
+from app.service.brain_service_interface import BrainServiceInterface
 
 
 class Brain(FlaskView):
 
-    def __init__(self):
-        self.brain_service = BrainService()
+    brain_service = inject.attr(BrainServiceInterface)
 
     @cross_origin()
     @route('/send-message', methods=['POST', 'OPTIONS'])
