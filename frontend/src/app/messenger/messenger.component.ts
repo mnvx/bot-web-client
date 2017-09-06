@@ -19,8 +19,15 @@ export class MessengerComponent implements OnInit, AfterViewInit {
 
   /**
    * Current message
+   * @type {string}
    */
   public message: string = '';
+
+  /**
+   * Do bot printing now
+   * @type {boolean}
+   */
+  public typing: boolean = false;
 
   /**
    * Message history for displaying on screen
@@ -82,13 +89,21 @@ export class MessengerComponent implements OnInit, AfterViewInit {
         author: 'user',
         text: this.message,
       });
+      this.typing = true;
       this.service.sendMessage(this.message).then((response) => {
         setTimeout(() => {
+          this.typing = false;
           this.addMessage({
             author: 'smartbot',
             text: response['speech'],
           });
         }, 500 + 2000*Math.random());
+      }, (error) => {
+        this.typing = false;
+        this.addMessage({
+          author: 'smartbot',
+          text: 'Извините, но что-то пошло не так...',
+        });
       });
 
       this.message = '';
