@@ -1,8 +1,7 @@
 from flask import jsonify
 from flask import request
-from flask.ext.classy import FlaskView, route
-from flask.ext.cors import cross_origin
-import json
+from flask_classy import FlaskView, route
+from flask_cors import cross_origin
 import inject
 from app.service.brain_service_interface import BrainServiceInterface
 

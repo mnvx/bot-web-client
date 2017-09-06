@@ -1,6 +1,6 @@
 from flask import jsonify
-from flask.ext.classy import FlaskView, route
-from flask.ext.cors import cross_origin
+from flask_classy import FlaskView, route
+from flask_cors import cross_origin
 import random
 
 
