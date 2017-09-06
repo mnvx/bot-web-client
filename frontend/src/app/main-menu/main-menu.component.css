@@ -1,9 +1,12 @@
 .logo a {
     text-decoration: none;
     color: black;
+    font-size: 1.4em;
 }
 .logo md-icon {
-    vertical-align: text-bottom;
+    font-size: 1em;
+    vertical-align: -15%;
+    width: 0.92em;
 }
 md-list-item a {
     padding-left: 1em;
