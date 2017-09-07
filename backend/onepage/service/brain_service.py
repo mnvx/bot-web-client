@@ -1,5 +1,5 @@
 import requests
-from app.service.brain_service_interface import BrainServiceInterface
+from .brain_service_interface import BrainServiceInterface
 
 
 class BrainService(BrainServiceInterface):

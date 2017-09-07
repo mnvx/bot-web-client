@@ -3,7 +3,7 @@ from flask import request
 from flask_classy import FlaskView, route
 from flask_cors import cross_origin
 import inject
-from app.service.brain_service_interface import BrainServiceInterface
+from onepage.service.brain_service_interface import BrainServiceInterface
 
 
 class Brain(FlaskView):
