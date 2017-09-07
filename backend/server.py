@@ -1,11 +1,9 @@
 from flask import Flask
 import inject
-
-from onepage.service.brain_service_interface import BrainServiceInterface
 from onepage.controller.demo_mode import DemoMode
 from onepage.controller.brain import Brain
 from onepage.service.brain_service import BrainService
-
+from onepage.service.brain_service_interface import BrainServiceInterface
 from app_config import BRAIN_API_URL
 
 
