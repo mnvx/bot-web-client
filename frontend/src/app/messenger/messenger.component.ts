@@ -90,21 +90,33 @@ export class MessengerComponent implements OnInit, AfterViewInit {
         text: this.message,
       });
       this.typing = true;
-      this.service.sendMessage(this.message).then((response) => {
-        setTimeout(() => {
-          this.typing = false;
-          this.addMessage({
-            author: 'smartbot',
-            text: response['speech'],
-          });
-        }, 500 + 2000*Math.random());
-      }, (error) => {
-        this.typing = false;
-        this.addMessage({
-          author: 'smartbot',
-          text: 'Извините, но что-то пошло не так...',
-        });
-      });
+      this.service.sendMessage(this.message)
+          .then(
+            (response) => {
+              setTimeout(() => {
+                this.typing = false;
+                if (response && response['speech']) {
+                  this.addMessage({
+                    author: 'smartbot',
+                    text: response['speech'],
+                  });
+                }
+                else {
+                  this.addMessage({
+                    author: 'smartbot',
+                    text: 'Извините, но что-то пошло не так... Бот отвечает на неизвестном языке...',
+                  });
+                }
+              }, 500 + 2000*Math.random());
+            },
+            (error) => {
+              this.typing = false;
+              this.addMessage({
+                author: 'smartbot',
+                text: 'Извините, но что-то пошло не так...',
+              });
+            }
+          );
 
       this.message = '';
     }
