@@ -25,6 +25,6 @@
     <md-form-field>
       <textarea mdInput name="message" placeholder="Введите сообщение..." (input)="onFoundMessageControl()" (keyup)="onKeyPress($event)" [(ngModel)]="message" #focusable autofocus>{{ message }}</textarea>
     </md-form-field>
-    <button md-button *ngIf="!messageActivated" (click)="activateMessageControl(focusable)" class="reply-to-bot mat-elevation-z8 hidden-xs hidden-sm">Ответить боту <md-icon>arrow_forward</md-icon></button>
+    <button md-raised-button *ngIf="!messageActivated" (click)="activateMessageControl(focusable)" class="reply-to-bot hidden-xs hidden-sm" color="primary">Ответить боту <md-icon>arrow_forward</md-icon></button>
   </div>
 </div>
