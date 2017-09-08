@@ -58,9 +58,24 @@ export class MessengerComponent implements OnInit, AfterViewInit {
   protected scrollDown() {
     let items = document.getElementsByClassName('messages');
     for (let i = 0; i != items.length; ++i) {
-      let item = <HTMLElement>items[i];
-      item.scrollTop = item.scrollHeight;
+      this.scrollDownItem(<HTMLElement>items[i]);
     }
+  }
+
+  /**
+   * Scroll down one item
+   * @param item
+   */
+  protected scrollDownItem(item: HTMLElement) {
+    let distance = item.scrollHeight - item.scrollTop;
+    let step = distance / 50;
+    let interval = setInterval(() => {
+      item.scrollTop += step;
+      if (distance < 0) {
+        clearInterval(interval);
+      }
+      distance -= step ;
+    }, 10);
   }
 
   /**
