@@ -99,7 +99,7 @@ export class MessengerComponent implements OnInit, AfterViewInit {
    * @param e
    */
   onKeyPress(e) {
-    if (e.keyCode === 13 && !e.shiftKey) {
+    if (e.keyCode === 13 && !e.shiftKey && this.message.trim()) {
       this.addMessage({
         author: 'user',
         text: this.message,
@@ -107,13 +107,23 @@ export class MessengerComponent implements OnInit, AfterViewInit {
       this.typing = true;
       this.service.sendMessage(this.message)
           .then(
-            (response) => {
+            (response: any) => {
               setTimeout(() => {
                 this.typing = false;
-                if (response && response['speech']) {
-                  this.addMessage({
-                    author: 'smartbot',
-                    text: response['speech'],
+                if (response && response.messages) {
+                  response.messages.forEach(message => {
+                    if (message.speech) {
+                      this.addMessage({
+                        author: 'smartbot',
+                        text: message.speech,
+                      });
+                    }
+                    else {
+                      this.addMessage({
+                        author: 'smartbot',
+                        text: 'Извините, но что-то пошло не так... Бот прислал что-то не являющееся сообщением...',
+                      });
+                    }
                   });
                 }
                 else {

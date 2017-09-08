@@ -15,5 +15,4 @@ class BrainService(BrainServiceInterface):
             "lang": "ru",
             "query": query
          })
-
-        return response.json()['data']['parameters']['messages'][0]['speech']
+        return response.json()['data']['parameters']['messages']

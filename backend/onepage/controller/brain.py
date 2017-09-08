@@ -15,14 +15,14 @@ class Brain(FlaskView):
     def send_message(self):
 
         message = request.get_json()['message']
-        speech = self.brain_service.query(message)
+        replies = self.brain_service.query(message)
 
         return jsonify(
             actionIncomplete=False,
             contexts=[],
             intent="Default Welcome Intent",
             parameters={},
-            speech=speech,
+            messages=replies,
             status="success",
             status_message="",
         )
