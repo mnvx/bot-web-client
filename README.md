@@ -1,11 +1,11 @@
-# Onepage
+# Bot web client
 
-This project is part of smartbot.online project. 
+![](doc/illustration.png)
 
 ## Installation using Docker
 
 ```bash
-git clone git@gitlab.com:smartbot.online/onepage.git
+git clone git@github.com:mnvx/bot-web-client.git
 cd onepage
 docker build -t onepage .
 ```

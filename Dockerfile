@@ -38,7 +38,7 @@ RUN pip3 install uwsgi
 RUN mkdir /work/www/smartbot
 # Instead of ADD:
 #https://github.com/moby/moby/issues/6396#issuecomment-270550056
-#RUN git clone git@gitlab.com:smartbot.online/onepage.git /work/www/smartbot/onepage
+#RUN git clone git@github.com:mnvx/bot-web-client.git /work/www/smartbot/onepage
 #RUN npm install -g @angular/cli
 ADD ./ /work/www/smartbot/onepage
 RUN cd /work/www/smartbot/onepage && make staging && cd /work
